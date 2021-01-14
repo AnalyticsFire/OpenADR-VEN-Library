@@ -1,0 +1,6 @@
+.git*
+build*
+Dockerfile
+README.md*
+LICENSE.txt
+VERSION
