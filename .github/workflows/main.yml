@@ -20,7 +20,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          tags: ci/OpenADR-VEN-Library:latest
+          tags: ci/openadr-ven-library:latest
       -
         name: Run unit tests
-        run: docker run -t ci/OpenADR-VEN-Library:latest /bin/bash -c "cd /open-adr-ven-library/build/debug && ./testoadr"
+        run: docker run -t ci/openadr-ven-library:latest /bin/bash -c "cd /open-adr-ven-library/build/debug && ./testoadr"
