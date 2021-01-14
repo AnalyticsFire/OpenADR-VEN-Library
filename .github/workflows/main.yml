@@ -25,6 +25,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          push: true
           tags: localhost:5000/ci/openadr-ven-library:latest
       -
         name: Run unit tests
