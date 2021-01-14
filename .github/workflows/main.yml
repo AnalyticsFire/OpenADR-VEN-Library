@@ -23,4 +23,4 @@ jobs:
           tags: ci/openadr-ven-library:latest
       -
         name: Run unit tests
-        run: docker run -t ci/openadr-ven-library:latest /bin/bash -c "cd /open-adr-ven-library/build/debug && ./testoadr"
+        run: docker run ${{ steps.docker_build.outputs.digest }} /bin/bash -c "cd /open-adr-ven-library/build/debug && ./testoadr"
