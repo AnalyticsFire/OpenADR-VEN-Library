@@ -31,4 +31,4 @@ jobs:
           tags: localhost:5000/ci/openadr-ven-library:latest
       -
         name: Run unit tests
-        run: docker run localhost:5000/ci/openadr-ven-library:latest /bin/bash -c "cd /open-adr-ven-library/build/debug && ./testoadr"
+        run: docker run localhost:5000/ci/openadr-ven-library:latest /bin/sh -c "cd /open-adr-ven-library/build/debug && ./testoadr"
