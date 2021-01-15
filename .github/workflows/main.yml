@@ -32,8 +32,7 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       -
         name: Check unit test result
-        run: |
-          echo "Passed:"
-          echo "$TEST_RESULT" | grep "[  PASSED  ]"
-          echo "Failed:"
-          echo "$TEST_RESULT" | grep "[  FAILED  ]"
+        if: contains(${{ $TEST_RESULT }}, '[  FAILED  ]')
+        run:
+          echo "Failed!"
+          set -e o pipefail
