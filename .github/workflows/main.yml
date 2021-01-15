@@ -27,12 +27,4 @@ jobs:
       -
         name: Run unit tests
         run: |
-          echo 'TEST_RESULT<<EOF' >> $GITHUB_ENV
-          docker run ci/openadr-ven-library:latest /bin/sh -c "cd /open-adr-ven-library/build/debug && ./testoadr" >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      -
-        name: Check unit test result
-        if: contains(env.TEST_RESULT, '[  FAILED  ]')
-        run:
-          echo "Failed!"
-          set -e o pipefail
+          docker run ci/openadr-ven-library:latest /bin/sh -c "cd /open-adr-ven-library/build/debug && ./testoadr"
