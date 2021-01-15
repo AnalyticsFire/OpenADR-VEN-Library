@@ -33,5 +33,7 @@ jobs:
       -
         name: Check unit test result
         run: |
-          echo $TEST_RESULT | grep "[  PASSED  ]"
-          echo $TEST_RESULT | grep "[  FAILED  ]"
+          echo "Passed:"
+          echo "$TEST_RESULT" | grep "[  PASSED  ]"
+          echo "Failed:"
+          echo "$TEST_RESULT" | grep "[  FAILED  ]"
