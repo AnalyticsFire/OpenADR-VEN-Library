@@ -15,8 +15,8 @@ WORKDIR /open-adr-ven-library/build/debug
 RUN apk add --no-cache \
     libstdc++ \
     libcurl \
-    xerces-c \
-    tzdata # for UT DateTimeConverterTest.ConvertToTime_t
+    xerces-c# \
+#    tzdata # for UT DateTimeConverterTest.ConvertToTime_t
 COPY --from=builder /open-adr-ven-library/build/debug/liboadr.so .
 COPY --from=builder /open-adr-ven-library/build/debug/liboadrsd.so .
 COPY --from=builder /open-adr-ven-library/build/debug/samplevenmgr .
