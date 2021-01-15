@@ -26,4 +26,11 @@ jobs:
           tags: ci/openadr-ven-library:latest
       -
         name: Run unit tests
-        run: docker run ci/openadr-ven-library:latest /bin/sh -c "cd /open-adr-ven-library/build/debug && ./testoadr"
+        run: |
+          echo 'TEST_RESULT<<EOF' >> $GITHUB_ENV
+          docker run ci/openadr-ven-library:latest /bin/sh -c "cd /open-adr-ven-library/build/debug && ./testoadr" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      -
+        name: Check unit test result
+          echo $TEST_RESULT | grep "[  PASSED  ]"
+          echo $TEST_RESULT | grep "[  FAILED  ]"
