@@ -32,5 +32,6 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       -
         name: Check unit test result
+        run: |
           echo $TEST_RESULT | grep "[  PASSED  ]"
           echo $TEST_RESULT | grep "[  FAILED  ]"
