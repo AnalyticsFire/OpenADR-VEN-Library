@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [master, test/kgrabowski]
   workflow_dispatch:
 
 jobs:
@@ -16,18 +16,5 @@ jobs:
           path: build
           key: ${{ runner.os }}-build
 
-      - name: Install Packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes  \
-                  libcurl4-gnutls-dev \
-                  libxerces-c-dev
-
-      - name: Build
-        run: |
-          cmake -B build -DTEST=1
-          cmake --build build -j$(nproc)
-
-      - name: Test
-        run: ./testoadr
-        working-directory: build
+      - run: ls -lh build/googletest-release-1.7.0/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+      - run: ls -lh googletest-release-1.7.0/src/gtest-all.cc
