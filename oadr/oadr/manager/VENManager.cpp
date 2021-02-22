@@ -107,7 +107,7 @@ void VENManager::exceptionWait()
 {
 	std::unique_lock<std::mutex> lock(m_mutex);
 
-	m_condition.wait_for(lock, seconds(10));
+	m_condition.wait_for(lock, seconds(m_exceptionRetryInterval));
 }
 
 /********************************************************************************/
