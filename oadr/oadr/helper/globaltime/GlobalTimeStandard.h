@@ -13,7 +13,6 @@
 class GlobalTimeStandard: public IGlobalTime
 {
 public:
-	virtual ~GlobalTimeStandard() = default;
 	time_t now() override;
 };
 
