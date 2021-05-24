@@ -353,7 +353,11 @@ void VENManager::run()
 
 void VENManager::stop()
 {
+	std::unique_lock<std::mutex> lock(m_mutex);
+
 	m_shutdown = true;
+
+	m_condition.notify_all();
 }
 
 /********************************************************************************/
